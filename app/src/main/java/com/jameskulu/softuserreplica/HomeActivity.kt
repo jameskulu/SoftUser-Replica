@@ -7,6 +7,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.jameskulu.softuserreplica.model.User
 
 class HomeActivity : AppCompatActivity(){
 
@@ -21,5 +22,7 @@ class HomeActivity : AppCompatActivity(){
                 R.id.navigation_home, R.id.navigation_aboutus, R.id.navigation_addstudent))
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        user.addUser()
     }
 }

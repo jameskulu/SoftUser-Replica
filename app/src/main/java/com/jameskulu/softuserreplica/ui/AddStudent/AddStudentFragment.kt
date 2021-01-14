@@ -14,10 +14,11 @@ import androidx.fragment.app.Fragment
 import com.jameskulu.softuserreplica.MainActivity
 import com.jameskulu.softuserreplica.R
 import com.jameskulu.softuserreplica.model.User
+import com.jameskulu.softuserreplica.user
 
 class AddStudentFragment : Fragment() {
 
-    private var users = ArrayList<User>()
+//    private var users = ArrayList<User>()
     private var gender = ""
 
     private lateinit var etFullName : EditText
@@ -61,20 +62,22 @@ class AddStudentFragment : Fragment() {
                     }
                 }
 
-
-                users.add(
+                user.lstUser.add(
                     User(
                         1,
                         etFullName.text.toString(),
-                        etAge.text.toString().toInt(),
+                        etAge.text.toString(),
                         etAddress.text.toString(),
-                        gender,
-                        "ss",
+                        gender
                     )
                 )
 
-
-
+                etFullName.setText("")
+                etAddress.setText("")
+                etAge.setText("")
+                rdoMale.isChecked = false
+                rdoFemale.isChecked = false
+                rdoOthers.isChecked = false
 
                 Toast.makeText(context, "Student saved", Toast.LENGTH_SHORT).show()
             }

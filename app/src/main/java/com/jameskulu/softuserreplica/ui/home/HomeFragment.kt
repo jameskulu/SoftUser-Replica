@@ -13,11 +13,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.jameskulu.softuserreplica.R
 import com.jameskulu.softuserreplica.adapter.UserAdapter
 import com.jameskulu.softuserreplica.model.User
+import com.jameskulu.softuserreplica.user
 
 class HomeFragment : Fragment() {
 
     private lateinit var recyclerView : RecyclerView
-    private var lstUsers = ArrayList<User>()
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -25,40 +25,43 @@ class HomeFragment : Fragment() {
             savedInstanceState: Bundle?
     ): View? {
         val root = inflater.inflate(R.layout.fragment_home, container, false)
-
-        recyclerView = root.findViewById(R.id.recyclerView)
-        loadUsers()
-
-        val adapter = context?.let { UserAdapter(lstUsers, it) }
-        recyclerView.layoutManager = LinearLayoutManager(context)
-        recyclerView.adapter = adapter
-
-
         return root
     }
 
 
-    private fun loadUsers(){
-        lstUsers.add(
-            User(
-                1,
-                "James Kulu",
-                20,
-                "Nepal",
-                "Male",
-                "hello"
-            )
-        )
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-        lstUsers.add(
-            User(
-                2,
-                "Rubi Bhandari",
-                20,
-                "India",
-                "Female",
-                "hello"
-            )
-        )
+        recyclerView = view.findViewById(R.id.recyclerView)
+//        loadUsers()
+        val adapter = context?.let { UserAdapter(user.lstUser, it) }
+        recyclerView.layoutManager = LinearLayoutManager(context)
+        recyclerView.adapter = adapter
+
     }
+
+
+//    private fun loadUsers(){
+//        lstUsers.add(
+//            User(
+//                1,
+//                "James Kulu",
+//                20,
+//                "Nepal",
+//                "Male",
+//                maleImg
+//            )
+//        )
+//
+//        lstUsers.add(
+//            User(
+//                2,
+//                "Rubi Bhandari",
+//                20,
+//                "India",
+//                "Female",
+//                femaleImg
+//            )
+//        )
+//    }
 }
