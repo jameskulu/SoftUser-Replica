@@ -27,7 +27,7 @@ class LoginActivity : AppCompatActivity() {
         btnLogin.setOnClickListener {
             if(validation()) {
                 if ((etUsername.text.toString() == "softwarica") && (etPassword.text.toString() == "coventry")) {
-                    val intent = Intent(this, MainActivity::class.java)
+                    val intent = Intent(this, HomeActivity::class.java)
                     startActivity(intent)
                 } else {
                     etUsername.error = "Invalid Username/Password"

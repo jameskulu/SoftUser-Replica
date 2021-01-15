@@ -47,7 +47,7 @@ class UserAdapter(
         val user = lstUsers[position]
         holder.tvName.text =  user.userFullName
         holder.tvAddress.text = user.address
-        holder.tvAge.text = user.age?.toInt().toString()
+        holder.tvAge.text = user.age
         holder.tvGender.text = user.gender
 
         if (user.gender == "Male"){
